@@ -1,0 +1,29 @@
+Changelog for spitefox.py (ai generated bc i really can't be arsed)
+
+    Imports Updated: Added or adjusted imports, including os, asyncio, aiofiles, time, toml, json, pygame, logging, base64, and more.
+    Added Enum: Introduced Enum from the enum module.
+    New Class Definitions:
+        class locations: Added to centralize directory and file path configurations for spitefox. Includes paths for:
+            Temporary and persistent directories for spitefox.
+            Data files such as tokens.json, furfag_colours.json, and furfag_instances.json.
+            Log and configuration files.
+        class furfag: Provides functionality for managing timers, helpers, startup, and yappers related to spitefox.
+            Added initialization of the following components:
+                firLoggers: For logging.
+                firHelpers: A helper function class.
+                firStartup: Experimental startup-related functions.
+                firYappers: For handling related yappers.
+            Introduced a spitefoxclient parameter to manage client-specific configurations.
+    New Functionality:
+        Experimental spitefox_setup method added for initializing spitefox. Includes:
+            Starting firTimers.
+            Logging initialization messages.
+            Managing instances with firHelpers.
+            Error handling for setup failures.
+        Introduced furfag.selfcest(), which tests and creates necessary files and folders on startup.
+    Other Changes:
+        Added ASCII artwork in docstrings for decorative or explanatory purposes.
+        Expanded the use of spitefox.toml to provide more granular control over debug logs and sound configurations.
+        Enhanced functionality for handling file paths, binary data, and configuration.
+
+This commit provides significant updates focusing on modularity, initialization, logging, and experimental features aimed at improving spitefox's setup and runtime operations.

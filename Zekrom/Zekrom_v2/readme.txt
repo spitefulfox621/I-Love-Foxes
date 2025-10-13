@@ -1,0 +1,1 @@
+zekrom doesn't work anymore as it's reliant on an old, deprecated feature of the spitefox library

@@ -1,0 +1,3 @@
+from spiteƒox import spitefox
+import os
+furfag = spitefox.furfag(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Zekrom.py'))

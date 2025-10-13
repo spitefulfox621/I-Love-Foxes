@@ -1,0 +1,4 @@
+aiofiles
+pygame
+colorama
+rich
