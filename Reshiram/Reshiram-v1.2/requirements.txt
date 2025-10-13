@@ -1,0 +1,10 @@
+aiohttp
+aiofiles
+discord
+asyncpraw
+mistralai
+pydub
+pygame
+colorama
+rich
+toml
