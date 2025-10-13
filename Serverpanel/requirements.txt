@@ -1,0 +1,8 @@
+colorama
+toml
+requests
+psutil
+asyncio
+mcrcon
+pygame
+pillow

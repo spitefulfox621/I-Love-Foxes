@@ -1,0 +1,27 @@
+[super-duper-awesome-config]
+update_ddns_on_launch = "false"
+auto_update_ddns = "false"
+minimize_console_on_launch = "true"
+close_launchpad_on_server_boot = "true"
+extended_debug = "true"
+auto_shutdown_on_empty_server = "true"
+do_config_check_on_boot = "true"
+crasher = "false"
+auto_shutdown_pc_on_empty_server = "false"
+
+[path-config]
+main_background = "./assets/background.png"
+launch_panel_background = "./assets/background2.png"
+settings_panel_background = "./assets/background3.png"
+bgm = "./assets/bgm.mp3"
+lock_file = "./session.lock"
+log_file = "./logs/log.txt"
+
+[launch-script]
+java21path = "C:\\Path\\java21\\bin\\java.exe"
+java17path = "C:\\Path\\java17\\bin\\java.exe"
+ramconfig = "-Xmx8G"
+jarconfig = "-jar"
+modloader-f = "fabric-server-launch.jar"
+modloader-q = "quilt-server-launch.jar"
+guiconfig = "--nogui"
