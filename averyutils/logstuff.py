@@ -1,12 +1,28 @@
 """lightweight custom logger"""
-import logging as _logging
-import logging.handlers as _loghand
-import colorama as _colorama
-import re as _re
-import threading as _threading
-import traceback as _traceback
-from typing import *
-from pathlib import Path
+from averyutils import avery_logger
+_log = avery_logger
+try:
+    import logging as _logging
+    import logging.handlers as _loghand
+    import colorama as _colorama
+    import re as _re
+    import threading as _threading
+    import traceback as _traceback
+    from typing import *
+    from pathlib import Path
+except ImportError as e:
+    print(e.name, "is not installed")
+    _log.error(f"{e.name} not installed")
+
+
+_pl = _threading.Lock()
+def lprint(*args, **kwargs):
+    """a locked print function, preventing two print calls from occouring at the same time"""
+    try:
+        _pl.acquire()
+        print(*args, **kwargs)
+    finally:
+        _pl.release()
 
 _default_logit_map = {
     "info": {"logging": _logging.INFO, "colorama": _colorama.Fore.GREEN},
@@ -25,6 +41,7 @@ class LogitConfig:
         self._lvl = False
         self._lgr = _logging.Logger(name="averyutils.logstuff", level=_logging.NOTSET)
         self._lck = _threading.Lock()
+        _log.debug("initialized logit config")
 
     @property
     def logger(self) -> _logging.Logger:
@@ -89,6 +106,7 @@ config = LogitConfig()
 class LogitUtils:
     def __init__(self):
         self.ansi_escape = _re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+        _log.debug("initialized logit utils")
 
     def getloggersimple(
         self,
@@ -107,13 +125,11 @@ class LogitUtils:
         if not filepath.name.endswith(".log"):
             filepath = filepath.with_suffix(".log")
         filepath = filepath.absolute()
-        print(filepath)
         logger = _logging.getLogger(name=name)
         logger.setLevel(level=level)
         handler = _loghand.RotatingFileHandler(
             filename=filepath,
             mode="w",
-            maxBytes=67000,
             encoding='utf-8',
             delay=True)
         handler.setFormatter(
